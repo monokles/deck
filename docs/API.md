@@ -45,6 +45,11 @@ In any case a user doesn't have access to a requested entity, a 403 error will b
 ### If-Modified-Since
 
 Some index endpoints support limiting the result set to entries that have been changed since the given time.
+The supported date formats are:
+
+* IMF-fixdate:      `Sun, 06 Nov 1994 08:49:37 GMT`
+* RFC 850:          `Sunday, 06-Nov-94 08:49:37 GMT`
+* ANSI C asctime(): `Sun Nov  6 08:49:37 1994`
 
 Example curl request:
 
@@ -52,7 +57,7 @@ Example curl request:
 curl -u admin:admin -X GET \
     'http://localhost:8000/index.php/apps/deck/api/v1.0/boards/2/stacks' \
     -H "OCS-APIRequest: true" \
-    -H "If-Modified-Since: Mon, 5 Nov 2018 09:28:00 GMT"
+    -H "If-Modified-Since: Mon, 05 Nov 2018 09:28:00 GMT"
 ```
 
 # Endpoints
